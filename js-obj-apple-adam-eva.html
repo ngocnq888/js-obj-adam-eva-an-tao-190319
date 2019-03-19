@@ -35,13 +35,14 @@
         this.setGender = function (boolean) {
               return this.gender = boolean;          
         };
-        this.checkAplle = function (Aplle) {
-            return !Aplle.isEmpty();
+        this.checkApple = function (Apple) {
+            return !Apple.isEmpty();
         };
         this.eat = function (Apple) {
-            this.checkAplle(Apple);
-            Apple.decrease();
-            weight++;
+            if(this.checkApple(Apple)){
+                weight++;
+                Apple.decrease();
+            }
         };
         this.say = function (String) {
             alert(String);
@@ -63,15 +64,15 @@
         alert(adam.getName() + '  : '+ adam.getWeight() + ' kg ' +' truoc an tao ');
         alert(eva.getName() + '  : '+ eva.getWeight() + ' kg ' +' truoc an tao ');
 
-            if(!firstApple.isEmpty()){
-                for(let i = 0; i < firstApple.getWeight(); i++)
-                {
+        if(adam.checkApple(firstApple)){
+            for(let i = 0; i < firstApple.getWeight(); i++)
+            {
                 adam.eat(firstApple);
                 eva.eat(firstApple);
-                }
-                document.write(adam.getName() + '  : '+ adam.getWeight() + ' kg ' +' sau an tao ');
-                document.write(eva.getName() + '  : '+ eva.getWeight() + ' kg ' +' sau an tao ');
             }
+            document.write(adam.getName() + '  : '+ adam.getWeight() + ' kg ' +' sau an tao ');
+            document.write(eva.getName() + '  : '+ eva.getWeight() + ' kg ' +' sau an tao ');
+        }
             else {
                 alert('Het tao roi con dau !');
                 document.write(adam.getName() + '  : '+ adam.getWeight() + 'van chua an <br/>');
